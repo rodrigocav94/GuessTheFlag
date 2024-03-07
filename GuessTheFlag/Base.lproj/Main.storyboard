@@ -16,18 +16,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wY-pN-2iE">
-                                <rect key="frame" x="84.666666666666686" y="100" width="224" height="114"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="nigeria"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNO-bN-fg2">
-                                <rect key="frame" x="84.666666666666686" y="244" width="224" height="114"/>
+                                <rect key="frame" x="96.666666666666686" y="233" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PNO-bN-fg2" secondAttribute="height" multiplier="2:1" id="2gK-Vn-ooc"/>
+                                    <constraint firstAttribute="height" constant="100" id="b13-yb-kUc"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="nigeria"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RH-bM-81m">
-                                <rect key="frame" x="84.666666666666686" y="388" width="224" height="114"/>
+                                <rect key="frame" x="96.666666666666686" y="363" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3RH-bM-81m" secondAttribute="height" multiplier="2:1" id="GUe-RT-kmO"/>
+                                    <constraint firstAttribute="height" constant="100" id="yBB-kk-JhZ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="nigeria"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wY-pN-2iE">
+                                <rect key="frame" x="96.666666666666686" y="103" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="9yu-eA-I46"/>
+                                    <constraint firstAttribute="width" secondItem="6wY-pN-2iE" secondAttribute="height" multiplier="2:1" id="bOd-eY-otx"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="nigeria"/>
                             </button>
@@ -35,12 +47,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6wY-pN-2iE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1eJ-th-IRK"/>
-                            <constraint firstItem="3RH-bM-81m" firstAttribute="top" secondItem="PNO-bN-fg2" secondAttribute="bottom" constant="30" id="HXb-Sl-Pvf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="6wY-pN-2iE" secondAttribute="top" constant="3" id="IFx-Da-qft"/>
-                            <constraint firstItem="PNO-bN-fg2" firstAttribute="centerX" secondItem="6wY-pN-2iE" secondAttribute="centerX" id="IMI-Te-qR1"/>
-                            <constraint firstItem="3RH-bM-81m" firstAttribute="centerX" secondItem="PNO-bN-fg2" secondAttribute="centerX" id="clL-Pt-O8J"/>
-                            <constraint firstItem="PNO-bN-fg2" firstAttribute="top" secondItem="6wY-pN-2iE" secondAttribute="bottom" constant="30" id="dH6-dx-qH8"/>
+                            <constraint firstItem="3RH-bM-81m" firstAttribute="centerX" secondItem="PNO-bN-fg2" secondAttribute="centerX" id="3R1-k5-yiG"/>
+                            <constraint firstItem="PNO-bN-fg2" firstAttribute="centerX" secondItem="6wY-pN-2iE" secondAttribute="centerX" id="60B-xW-cKT"/>
+                            <constraint firstItem="6wY-pN-2iE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Je7-7H-4Jj"/>
+                            <constraint firstItem="6wY-pN-2iE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ht9-sq-Xgh"/>
+                            <constraint firstItem="PNO-bN-fg2" firstAttribute="top" secondItem="6wY-pN-2iE" secondAttribute="bottom" constant="30" id="kDV-sr-iNf"/>
+                            <constraint firstItem="3RH-bM-81m" firstAttribute="top" secondItem="PNO-bN-fg2" secondAttribute="bottom" constant="30" id="lH7-Cm-6GF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PYH-59-BeX"/>
