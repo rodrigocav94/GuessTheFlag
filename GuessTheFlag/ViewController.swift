@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
         if currentRound >= 10 {
-            currentRound = 0
+            currentRound = 1
             score = 0
         } else {
             currentRound += 1
