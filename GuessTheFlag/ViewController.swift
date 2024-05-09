@@ -11,12 +11,14 @@ class ViewController: UIViewController {
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
+    @IBOutlet var highestScoreLabel: UILabel!
     
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
     var currentRound = 0
     let totalRounds = 10
+    var highestScore = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,7 @@ class ViewController: UIViewController {
         countries += ["estonia", "france", "germany", "ireland","italy","monaco","nigeria","poland","russia","spain","uk","us"]
         configureButtonLayout()
         askQuestion()
+        loadHighestScore()
     }
     
     func configureButtonLayout() {
@@ -37,8 +40,18 @@ class ViewController: UIViewController {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
         if currentRound >= 10 {
+            if score > highestScore {
+                let defaults = UserDefaults.standard
+                defaults.setValue(score, forKey: "highestScore")
+                
+                let ac = UIAlertController(title: "Your highest score is now \(score)!", message: nil, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Woohoo!", style: .default))
+                present(ac, animated: true)
+            }
+            
             currentRound = 1
             score = 0
+            loadHighestScore()
         } else {
             currentRound += 1
         }
@@ -87,13 +100,20 @@ class ViewController: UIViewController {
         updateNavBarItems()
         
         let didFinishAllRounds = currentRound == totalRounds
-        var message = "Your\(didFinishAllRounds ? " final" : "") score is: \(score)"
-        var alertActionLabel = didFinishAllRounds ? "Play again" : "Continue"
+        let message = "Your\(didFinishAllRounds ? " final" : "") score is: \(score)"
+        let alertActionLabel = didFinishAllRounds ? "Play again" : "Continue"
         
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: alertActionLabel, style: .default, handler: askQuestion))
         
         present(ac, animated: true)
         
+    }
+    
+    func loadHighestScore() {
+        let defaults = UserDefaults.standard
+        let currentHighest = defaults.integer(forKey: "highestScore")
+        highestScore = currentHighest
+        highestScoreLabel.text = "Highest score: \(currentHighest)"
     }
 }

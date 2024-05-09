@@ -74,6 +74,7 @@
                         <outlet property="button1" destination="L9G-PS-9CL" id="j34-Mj-1hF"/>
                         <outlet property="button2" destination="1bA-Li-MPV" id="3vi-32-xH4"/>
                         <outlet property="button3" destination="xEQ-nD-3bF" id="PRz-OH-Nj6"/>
+                        <outlet property="highestScoreLabel" destination="1k4-Db-3oj" id="7cD-Ka-URg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
