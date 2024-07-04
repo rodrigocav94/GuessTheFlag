@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        requestNotificationPermission()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -48,5 +49,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+}
+
+// MARK: - Notification Methods
+extension SceneDelegate {
+    func requestNotificationPermission() {
+        let center = UNUserNotificationCenter.current()
+        
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { [weak self] granted, error in
+            if granted {
+                print("Permission to request notification granted")
+                self?.scheduleNotifications()
+            } else {
+                print("Permission to request notification denied")
+            }
+        }
+    }
+    
+    func scheduleNotifications() {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Ready to Guess Some Flags?"
+        content.body = "Hop back in and guess some flags! See how many you can get right. 👀"
+        content.sound = UNNotificationSound.default
+        
+        let day = 86400
+        Array(1...7).forEach { iterator in
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(day * iterator), repeats: false)
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            center.add(request)
+        }
+    }
 }
 
